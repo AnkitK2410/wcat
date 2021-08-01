@@ -9,12 +9,12 @@ switch(command)
 {
     case "-s":
         for(let i=1;i<inputarr.length;i++)   
-     {
+     {   let ans="";
          let content="";
          if(fs.existsSync(inputarr[i]))
          {
               content=content+fs.readFileSync(inputarr[i]);
-              let ans="";
+             
               let count=0;
               for(let j=0;j<content.length;j++)
               {
@@ -33,14 +33,16 @@ switch(command)
                       count=0;
                   }
               }
-            console.log(ans);
+           
          }
          else
          {
              console.log("file doesn't exist");
          }
-        
+         console.log(ans);
+         
      }
+    break;
      
 
     case "-n":
@@ -76,7 +78,7 @@ switch(command)
          console.log(ans);
      }
 
-    
+    break;
     case "-b":
         for(let i=1;i<inputarr.length;i++)   
      {
@@ -110,7 +112,7 @@ switch(command)
          console.log(ans);
      }
 
-
+    break;
    
     default:
      for(let i=0;i<inputarr.length;i++)   
