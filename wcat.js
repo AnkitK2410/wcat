@@ -16,6 +16,7 @@ switch(command)
               content=content+fs.readFileSync(inputarr[i]);
              
               let count=0;
+              
               for(let j=0;j<content.length;j++)
               {
 
