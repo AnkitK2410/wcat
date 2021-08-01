@@ -8,15 +8,20 @@ let command=inputarr[0];
 switch(command)
 {
     case "-s":
+    
         for(let i=1;i<inputarr.length;i++)   
-     {   let ans="";
+     {   
+          let ans="";
          let content="";
+         
+        
          if(fs.existsSync(inputarr[i]))
          {
+           
               content=content+fs.readFileSync(inputarr[i]);
              
               let count=0;
-              
+
               for(let j=0;j<content.length;j++)
               {
 
@@ -35,14 +40,15 @@ switch(command)
                   }
               }
            
-         }
-         else
+           }
+
+          else
          {
              console.log("file doesn't exist");
          }
          console.log(ans);
-         
-     }
+
+        }
     break;
      
 
@@ -92,12 +98,19 @@ switch(command)
             
              
              let val=1;
+             if(content.charAt(0)!="\r")
+             {
+                 ans=ans+1+" ";
+                 val++;
+             }
              for(let i=0;i<content.length;i++)
              {
-                if(content.charAt(i)=="\n"&&content.charAt(i+1)=="\r")
+
+                if(content.charAt(i)!="\n"&&content.charAt(i)!="\r"&&content.charAt(i-1)=="\n")
                {
-                 ans=ans+content.charAt(i);
+                
                  ans=ans+val+" ";
+                 ans=ans+content.charAt(i);
                  val++;
                }
                else
